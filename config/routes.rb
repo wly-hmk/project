@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   patch '/elements/:element_id', to: 'elements#update'
 
   # Endpoint to generate a web page
-  get '/website/:url',      to: 'WebsiteController#show'
+  get '/website/:url', to: 'website#show', :constraints => { :url => /[^\/]+/ }
 end

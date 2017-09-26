@@ -4,6 +4,14 @@ class Element < ApplicationRecord
   validates_presence_of :element, :content, :order
   validate :element_attributes_is_json
 
+  def attributes_hash
+    if element_attributes && !element_attributes.empty?
+      JSON.parse element_attributes
+    else
+      []
+    end
+  end
+
 private
   def element_attributes_is_json
     begin
