@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site: one
+  name: MyString
+  slug: MyString
+  order: 1
+
+two:
+  site: two
+  name: MyString
+  slug: MyString
+  order: 1
