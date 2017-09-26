@@ -1,7 +1,9 @@
-<div class="navigation">
-  <% @pages.each do |page| %>
-    <li><a href="/<%= page.slug %>"><%= page.name %></a></li>
-  <% end %>
+<div class="Navigation">
+  <ul>
+    <% @pages.each do |page| %>
+      <li><a href="/<%= page.slug %>"><%= page.name %></a></li>
+    <% end %>
+  </ul>
 </div>
 
 <title><%= @site.title %> - <%= @page.name %></title>
