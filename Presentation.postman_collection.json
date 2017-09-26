@@ -1,0 +1,190 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Presentation",
+		"_postman_id": "dc2a5948-b88d-d84f-77bb-fafe96a92829",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a Site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "A New Site",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "http://www.example.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "published",
+							"value": "false",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create a page for a site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=beKhUZSUKQWCCLdmJ_89rg",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "A new page!",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "a-new-page",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "order",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create an element for a page",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/1/pages/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "element",
+							"value": "p",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "element_attributes",
+							"value": "{\"class\": \"content\",\"style\":\"color:green\"}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Hello world!",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "order",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "\t"
+			},
+			"response": []
+		},
+		{
+			"name": "Generate A Web Page",
+			"request": {
+				"url": "http://0.0.0.0:3000/website/http%3A%2F%2Fwww.example.com%2Fa-new-page",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/10",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=beKhUZSUKQWCCLdmJ_89rg",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Han's site",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "published",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "A website with multiple pages and links",
+			"request": {
+				"url": "http://0.0.0.0:3000/website/http%3A%2F%2Fwww.hanmkim.com%2Ffirst-page",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
