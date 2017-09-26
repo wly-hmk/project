@@ -16,7 +16,7 @@ class Element < ApplicationRecord
 private
   def element_attributes_is_json
     begin
-      unless element_attributes.empty?
+      unless element_attributes.blank?
         JSON.parse(self.element_attributes)
       end
     rescue
