@@ -1,0 +1,380 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Miniweebly",
+		"_postman_id": "1acf0d2c-5732-53d7-3063-d77413d49d25",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get list of user's sites",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "My Site",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "http://www.mysite.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "published",
+							"value": "false",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get pages for a site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "url",
+							"value": "http://www.hanmkim.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Han's website",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "published",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create a page for a site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "My second page!",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "my-second",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "order",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Unauthenticated Get list of user's sites",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create an element for a page",
+			"request": {
+				"url": "http://0.0.0.0:3000/pages/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "element",
+							"value": "h1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "element_attributes",
+							"value": "{}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Hello world!",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "order",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "\t"
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/2",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Edited Title",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "published",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Page",
+			"request": {
+				"url": "http://0.0.0.0:3000/pages/2",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Edited Name",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "edited-slug",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "order",
+							"value": "3",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update an Element",
+			"request": {
+				"url": "http://0.0.0.0:3000/elements/3",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "element_attributes",
+							"value": "{\"class\": \"some_content\"}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "I did something",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "order",
+							"value": "3",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "element",
+							"value": "p",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update an Element to script tag",
+			"request": {
+				"url": "http://0.0.0.0:3000/elements/1",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "element_attributes",
+							"value": "{}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "console.log('hello world');",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "order",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "element",
+							"value": "script",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Generate A Web Page",
+			"request": {
+				"url": "http://0.0.0.0:3000/website/http%3A%2F%2Fwww.hanmkim.com%2Ffirst-page",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

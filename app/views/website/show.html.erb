@@ -1,0 +1,13 @@
+<div class="navigation">
+  <% @pages.each do |page| %>
+    <li><a href="/<%= page.slug %>"><%= page.name %></a></li>
+  <% end %>
+</div>
+
+<title><%= @site.title %> - <%= @page.name %></title>
+
+<% @elements.each do |element| %>
+  <<%= element.element %><% element.attributes_hash.each do |key, value| %> <%= key %>='<%= value %>'<% end %>>
+  <%= element.content %>
+  </<%= element.element %>>
+<% end %>
