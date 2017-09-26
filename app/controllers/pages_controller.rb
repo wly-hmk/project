@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       render json: pages, status: 200
     else
       pages = []
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found'}, status: 404
     end
   end
 
@@ -24,10 +24,13 @@ class PagesController < ApplicationController
         clear_site_cache(current_site)
         render json: page, status: 201
       rescue
-        render plain: 'Bad request', status: 400
+        message = page.errors.full_messages.first.to_s.presence ||
+                  'Slug and site must be unique'
+        render json: { message: message },
+               status: 400
       end
     else
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found'}, status: 404
     end
   end
 
@@ -40,10 +43,13 @@ class PagesController < ApplicationController
         delete_site_pages_cache
         render json: page, status: 200
       rescue
-        render plain: 'Bad Request', status: 400
+        message = page.errors.full_messages.first.to_s.presence ||
+                  'Slug and site must be unique'
+        render json: { message: message },
+               status: 400
       end
     else
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found'}, status: 404
     end
   end
 
@@ -55,7 +61,7 @@ class PagesController < ApplicationController
       delete_site_pages_cache
       head :no_content
     else
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found'}, status: 404
     end
   end
 
@@ -66,7 +72,7 @@ private
 
   def current_site
     # Making sure that the site belongs to the user
-    @user.site.find(params[:site_id])
+    @user.site.find_by(id: params[:site_id])
   end
 
   def delete_site_pages_cache

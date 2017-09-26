@@ -13,7 +13,7 @@ class ElementsController < ApplicationController
         render plain: 'Bad request', status: 400
       end
     else
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found'}, status: 404
     end
   end
 
@@ -29,7 +29,7 @@ class ElementsController < ApplicationController
         render plain: 'Bad Request', status: 400
       end
     else
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found'}, status: 404
     end
   end
 
@@ -41,7 +41,7 @@ class ElementsController < ApplicationController
       clear_site_cache(current_page.site)
       head :no_content
     else
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found'}, status: 404
     end
   end
 

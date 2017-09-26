@@ -16,7 +16,10 @@ class SitesController < ApplicationController
       delete_user_sites_cache
       render json: site, status: 201
     rescue
-      render plain: 'Bad Request', status: 400
+      message = site.errors.full_messages.first.to_s.presence ||
+                'URL must be unique'
+      render json: { message: message },
+             status: 400
     end
   end
 
@@ -30,10 +33,13 @@ class SitesController < ApplicationController
         delete_user_sites_cache
         render json: site, status: 200
       rescue
-        render plain: 'Bad Request', status: 400
+        message = site.errors.full_messages.first.to_s.presence ||
+                  'URL must be unique'
+        render json: { message: message },
+               status: 400
       end
     else
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found'}, status: 404
     end
   end
 
@@ -44,7 +50,7 @@ class SitesController < ApplicationController
       delete_user_sites_cache
       head :no_content
     else
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found'}, status: 404
     end
   end
 
