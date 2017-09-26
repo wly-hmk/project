@@ -1,6 +1,7 @@
 class Page < ApplicationRecord
   belongs_to :site
-  validates_presence_of :name, :slug, :order
+  validates :name, :slug, presence: true
+  validates :order, numericality: { only_integer: true }
 
   has_many :element, :dependent => :delete_all
 end

@@ -10,7 +10,8 @@ class ElementsController < ApplicationController
         clear_site_cache(current_page.site)
         render json: element, status: 201
       rescue
-        render plain: 'Bad request', status: 400
+        message = element.errors.full_messages.first.to_s.presence
+        render json: { message: message }, status: 400
       end
     else
       render json: { message: 'Not Found'}, status: 404
@@ -26,7 +27,8 @@ class ElementsController < ApplicationController
         clear_site_cache(current_page.site)
         render json: element, status: 200
       rescue
-        render plain: 'Bad Request', status: 400
+        message = page.errors.full_messages.first.to_s.presence
+        render json: { message: message }, status: 400
       end
     else
       render json: { message: 'Not Found'}, status: 404

@@ -1,7 +1,8 @@
 class Element < ApplicationRecord
   belongs_to :page
 
-  validates_presence_of :element, :content, :order
+  validates :element, :content, presence: true
+  validates :order, numericality: { only_integer: true }
   validate :element_attributes_is_json
 
   def attributes_hash
