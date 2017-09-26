@@ -15,7 +15,7 @@
  */
 
 body{
-  background-color: #ADD8E6;
+  background-color: #1e1e1e;
 }
 
 .SignupBox {
@@ -45,6 +45,16 @@ label {
   color: red;
 }
 
+.WebPage {
+  font-family: arial;
+  background-color: #c8c8c8;
+  border-radius: 10px;
+  padding: 15px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Navigation {
   overflow: wrap;
   line-height: 40px;
@@ -54,11 +64,13 @@ label {
 }
 
 .Navigation a {
+  color: #b8b8b8;
+  font-weight: bold;
   text-decoration: none
 }
 
 .Navigation a:hover {
-  font-size: 19px;
+  color: #5c5c5c;
 }
 
 .Navigation li {

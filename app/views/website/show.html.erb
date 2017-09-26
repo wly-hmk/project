@@ -1,3 +1,5 @@
+<% @title = "#{@site.title} - #{@page.name}" %>
+
 <div class="Navigation">
   <ul>
     <% @pages.each do |page| %>
@@ -6,10 +8,10 @@
   </ul>
 </div>
 
-<title><%= @site.title %> - <%= @page.name %></title>
-
-<% @elements.each do |element| %>
-  <<%= element.element %><% element.attributes_hash.each do |key, value| %> <%= key %>='<%= value %>'<% end %>>
-  <%= element.content %>
-  </<%= element.element %>>
-<% end %>
+<div class="WebPage">
+  <% @elements.each do |element| %>
+    <<%= element.element %><% element.attributes_hash.each do |key, value| %> <%= key %>='<%= value %>'<% end %>>
+    <%= element.content %>
+    </<%= element.element %>>
+  <% end %>
+</div>
