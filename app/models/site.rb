@@ -4,4 +4,5 @@ class Site < ApplicationRecord
   validates :published, inclusion: { in: [ true, false ] }
 
   has_many :page
+  has_many :element, :through => :page
 end

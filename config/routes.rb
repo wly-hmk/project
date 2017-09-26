@@ -5,18 +5,21 @@ Rails.application.routes.draw do
   post '/user', to: 'user#create'
 
   # Endpoints for sites for current authenticated user
-  get   '/sites',          to: 'sites#index'
-  post  '/sites',          to: 'sites#create'
-  patch '/sites/:site_id', to: 'sites#update'
+  get     '/sites',          to: 'sites#index'
+  post    '/sites',          to: 'sites#create'
+  patch   '/sites/:site_id', to: 'sites#update'
+  delete  '/sites/:site_id', to: 'sites#delete'
 
   # Endpoints for pages
-  get   '/sites/:site_id',   to: 'pages#index'
-  post  '/sites/:site_id',   to: 'pages#create'
-  patch '/pages/:page_id',   to: 'pages#update'
+  get     '/sites/:site_id',                  to: 'pages#index'
+  post    '/sites/:site_id',                  to: 'pages#create'
+  patch   '/sites/:site_id/pages/:page_id',   to: 'pages#update'
+  delete  '/sites/:site_id/pages/:page_id',   to: 'pages#delete'
 
   # Endpoints for elements
-  post  '/pages/:page_id',       to: 'elements#create'
-  patch '/elements/:element_id', to: 'elements#update'
+  post    '/sites/:site_id/pages/:page_id',                       to: 'elements#create'
+  patch   '/sites/:site_id/pages/:page_id/elements/:element_id',  to: 'elements#update'
+  delete  '/sites/:site_id/pages/:page_id/elements/:element_id',  to: 'elements#delete'
 
   # Endpoint to generate a web page
   get '/website/:url', to: 'website#show', :constraints => { :url => /[^\/]+/ }

@@ -27,13 +27,24 @@ class PagesController < ApplicationController
   end
 
   def update
-    if page = @user.page.find(params[:page_id])
+    if page = @user.page.find_by(id: params[:page_id],
+                                 site_id: params[:site_id])
       begin
         page.update_attributes(page_params)
         render json: page, status: 200
       rescue
         render plain: 'Bad Request', status: 400
       end
+    else
+      render plain: 'Not Found', status: 404
+    end
+  end
+
+  def delete
+    if page = @user.page.find_by(id: params[:page_id],
+                                 site_id: params[:site_id])
+      page.destroy
+      head :no_content
     else
       render plain: 'Not Found', status: 404
     end

@@ -18,7 +18,7 @@ class SitesController < ApplicationController
   end
 
   def update
-    if site = @user.site.find(params[:site_id])
+    if site = @user.site.find_by(id: params[:site_id])
       begin
         params_copy = site_params
         params_copy.delete :site_id
@@ -27,6 +27,15 @@ class SitesController < ApplicationController
       rescue
         render plain: 'Bad Request', status: 400
       end
+    else
+      render plain: 'Not Found', status: 404
+    end
+  end
+
+  def delete
+    if site = @user.site.find_by(id: params[:site_id])
+      site.destroy
+      head :no_content
     else
       render plain: 'Not Found', status: 404
     end
