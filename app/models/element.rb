@@ -15,7 +15,9 @@ class Element < ApplicationRecord
 private
   def element_attributes_is_json
     begin
-      JSON.parse(self.element_attributes)
+      unless element_attributes.empty?
+        JSON.parse(self.element_attributes)
+      end
     rescue
       errors[:base] << "Element Attributes is not valid JSON"
     end

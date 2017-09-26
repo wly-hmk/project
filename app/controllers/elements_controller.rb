@@ -7,6 +7,7 @@ class ElementsController < ApplicationController
         element = Element.new(element_params)
         element.page = current_page
         element.save!
+        clear_site_cache(current_page.site)
         render json: element, status: 201
       rescue
         render plain: 'Bad request', status: 400
@@ -22,6 +23,7 @@ class ElementsController < ApplicationController
                  current_page.site_id == params[:site_id].to_i
       begin
         element.update_attributes(element_params)
+        clear_site_cache(current_page.site)
         render json: element, status: 200
       rescue
         render plain: 'Bad Request', status: 400
@@ -36,6 +38,7 @@ class ElementsController < ApplicationController
                                        id: params[:element_id])) &&
                  current_page.site_id == params[:site_id].to_i
       element.destroy
+      clear_site_cache(current_page.site)
       head :no_content
     else
       render plain: 'Not Found', status: 404
