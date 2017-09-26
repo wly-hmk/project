@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926181744) do
+ActiveRecord::Schema.define(version: 20170926212242) do
 
   create_table "elements", force: :cascade do |t|
     t.integer "page_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170926181744) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.index ["api_token"], name: "index_users_on_api_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

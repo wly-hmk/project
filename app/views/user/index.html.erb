@@ -8,6 +8,7 @@
     <div class="SignupBox">
     <% if @user_signedup %>
       <h2>You are signed in!</h2>
+      Here is your api_token: <%= @api_token %>
     <% else %>
       <h2>Sign up to create your site now!</h2>
       <% if flash[:notice] %>
