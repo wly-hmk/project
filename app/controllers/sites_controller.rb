@@ -16,7 +16,7 @@ class SitesController < ApplicationController
       delete_user_sites_cache
       render json: site, status: 201
     rescue
-      render plain: site.errors.full_messages.to_s, status: 400
+      render plain: 'Bad Request', status: 400
     end
   end
 

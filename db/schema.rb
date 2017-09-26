@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925183512) do
+ActiveRecord::Schema.define(version: 20170926181744) do
 
   create_table "elements", force: :cascade do |t|
     t.integer "page_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170925183512) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["site_id"], name: "index_pages_on_site_id"
+    t.index ["slug", nil], name: "index_pages_on_slug_and_site", unique: true
   end
 
   create_table "sites", force: :cascade do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170925183512) do
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["url"], name: "index_sites_on_url", unique: true
     t.index ["user_id"], name: "index_sites_on_user_id"
   end
 
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170925183512) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
