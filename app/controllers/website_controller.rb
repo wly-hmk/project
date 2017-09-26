@@ -29,6 +29,8 @@ private
     @page = cached_data[:page]
     @pages = cached_data[:pages]
     @elements = cached_data[:elements]
+    # Clean up the link so we can use them on anchor tags in layout
+    @domain_link = (@site.url.gsub!('/', '%2F') || @site.url).gsub!(':', '%3A')
   end
 
 end

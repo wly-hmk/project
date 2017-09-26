@@ -1,7 +1,7 @@
 <div class="Navigation">
   <ul>
     <% @pages.each do |page| %>
-      <li><a href="/<%= page.slug %>"><%= page.name %></a></li>
+      <li><a href="/website/<%= @domain_link %>%2F<%= page.slug %>"><%= page.name %></a></li>
     <% end %>
   </ul>
 </div>
