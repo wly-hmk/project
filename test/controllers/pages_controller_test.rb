@@ -16,7 +16,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create a page for a site' do
-    post "/sites/#{@site.id}",
+    post "/sites/#{@site.id}/pages",
          params: {
            name: "hello",
            slug: "hello-page",

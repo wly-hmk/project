@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
   before_action :restrict_content_type, :except => [:show, :index, :delete]
 
+  def not_found
+    render json: { message: 'Not Found' }, status: 404
+  end
+
 protected
   def authenticate
     authenticate_or_request_with_http_token do |token, options|

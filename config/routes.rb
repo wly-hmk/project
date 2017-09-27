@@ -13,15 +13,18 @@ Rails.application.routes.draw do
 
   # Endpoints for pages
   get     '/sites/:site_id/pages',            to: 'pages#index'
-  post    '/sites/:site_id',                  to: 'pages#create'
+  post    '/sites/:site_id/pages',            to: 'pages#create'
   patch   '/sites/:site_id/pages/:page_id',   to: 'pages#update'
   delete  '/sites/:site_id/pages/:page_id',   to: 'pages#delete'
 
   # Endpoints for elements
-  post    '/sites/:site_id/pages/:page_id',                       to: 'elements#create'
+  post    '/sites/:site_id/pages/:page_id/elements',              to: 'elements#create'
   patch   '/sites/:site_id/pages/:page_id/elements/:element_id',  to: 'elements#update'
   delete  '/sites/:site_id/pages/:page_id/elements/:element_id',  to: 'elements#delete'
 
   # Endpoint to generate a web page
   get '/website/:url', to: 'website#show', :constraints => { :url => /[^\/]+/ }
+
+  # Non-existent routes
+  match '*path', to: 'application#not_found', via: :all
 end

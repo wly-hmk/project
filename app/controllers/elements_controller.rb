@@ -14,7 +14,7 @@ class ElementsController < ApplicationController
         render json: { message: message }, status: 400
       end
     else
-      render json: { message: 'Not Found'}, status: 404
+      render json: { message: 'Not Found' }, status: 404
     end
   end
 
@@ -31,7 +31,7 @@ class ElementsController < ApplicationController
         render json: { message: message }, status: 400
       end
     else
-      render json: { message: 'Not Found'}, status: 404
+      render json: { message: 'Not Found' }, status: 404
     end
   end
 
@@ -43,7 +43,7 @@ class ElementsController < ApplicationController
       clear_site_cache(current_page.site)
       head :no_content
     else
-      render json: { message: 'Not Found'}, status: 404
+      render json: { message: 'Not Found' }, status: 404
     end
   end
 

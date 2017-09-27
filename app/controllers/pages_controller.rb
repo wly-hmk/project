@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       render json: pages, status: 200
     else
       pages = []
-      render json: { message: 'Not Found'}, status: 404
+      render json: { message: 'Not Found' }, status: 404
     end
   end
 
@@ -25,11 +25,10 @@ class PagesController < ApplicationController
         render json: page, status: 201
       rescue
         message = page.errors.full_messages.first.to_s
-        render json: { message: message },
-               status: 400
+        render json: { message: message }, status: 400
       end
     else
-      render json: { message: 'Not Found'}, status: 404
+      render json: { message: 'Not Found' }, status: 404
     end
   end
 
@@ -43,13 +42,11 @@ class PagesController < ApplicationController
         delete_site_pages_cache
         render json: page, status: 200
       rescue
-        message = page.errors.full_messages.first.to_s.presence ||
-                  'Slug and site must be unique'
-        render json: { message: message },
-               status: 400
+        message = page.errors.full_messages.first.to_s.presence
+        render json: { message: message }, status: 400
       end
     else
-      render json: { message: 'Not Found'}, status: 404
+      render json: { message: 'Not Found' }, status: 404
     end
   end
 
@@ -61,7 +58,7 @@ class PagesController < ApplicationController
       delete_site_pages_cache
       head :no_content
     else
-      render json: { message: 'Not Found'}, status: 404
+      render json: { message: 'Not Found' }, status: 404
     end
   end
 
