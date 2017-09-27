@@ -21,7 +21,7 @@ private
       data[:site] = Site.find_by(url: domain)
       data[:page] = data[:site].page.find_by(slug: slug)
       data[:pages] = data[:site].page.sort_by { |p| p.order }
-      data[:elements] = data[:page].element.sort_by { |e| e.order }
+      data[:elements] = data[:page].try(:element).try(:sort_by) { |e| e.order }
       data
     end
 
