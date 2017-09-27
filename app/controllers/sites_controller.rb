@@ -8,6 +8,17 @@ class SitesController < ApplicationController
     render json: sites, status: 200
   end
 
+  def show
+    site = Rails.cache.fetch("site_#{params[:site_id]}", expires_in: 1.hour) do
+      Site.find_by(id: params[:site_id], user_id: @user.id)
+    end
+    if site.nil?
+      render json: { message: 'Not Found'}, status: 404
+    else
+      render json: site, status: 200
+    end
+  end
+
   def create
     site = Site.new(site_params)
     site.user = @user
@@ -17,8 +28,7 @@ class SitesController < ApplicationController
       render json: site, status: 201
     rescue
       message = site.errors.full_messages.first.to_s
-      render json: { message: message },
-             status: 400
+      render json: { message: message }, status: 400
     end
   end
 
@@ -32,8 +42,7 @@ class SitesController < ApplicationController
         render json: site, status: 200
       rescue
         message = site.errors.full_messages.first.to_s
-        render json: { message: message },
-               status: 400
+        render json: { message: message }, status: 400
       end
     else
       render json: { message: 'Not Found'}, status: 404

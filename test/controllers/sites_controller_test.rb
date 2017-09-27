@@ -14,6 +14,15 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     assert_same(JSON.parse(@response.body).count, @user.site.count)
   end
 
+  test "should get details for a site" do
+    last_site = Site.last
+    get "/sites/#{last_site.id}", headers: @headers
+    site_details = JSON.parse(@response.body)
+    assert_equal(site_details['id'], last_site.id)
+    assert_equal(site_details['title'], last_site.title)
+    assert_equal(site_details['user_id'], last_site.user_id)
+  end
+
   test "should create a site for user" do
     original_sites = @user.site.count
     post '/sites',

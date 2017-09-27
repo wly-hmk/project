@@ -6,12 +6,13 @@ Rails.application.routes.draw do
 
   # Endpoints for sites for current authenticated user
   get     '/sites',          to: 'sites#index'
+  get     '/sites/:site_id', to: 'sites#show'
   post    '/sites',          to: 'sites#create'
   patch   '/sites/:site_id', to: 'sites#update'
   delete  '/sites/:site_id', to: 'sites#delete'
 
   # Endpoints for pages
-  get     '/sites/:site_id',                  to: 'pages#index'
+  get     '/sites/:site_id/pages',            to: 'pages#index'
   post    '/sites/:site_id',                  to: 'pages#create'
   patch   '/sites/:site_id/pages/:page_id',   to: 'pages#update'
   delete  '/sites/:site_id/pages/:page_id',   to: 'pages#delete'
