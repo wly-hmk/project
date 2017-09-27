@@ -3,11 +3,11 @@
 one:
   user: one
   title: MyString
-  url: MyString
+  url: MyString1
   published: false
 
 two:
   user: two
   title: MyString
-  url: MyString
+  url: MyString2
   published: false

@@ -3,13 +3,13 @@
 one:
   page: one
   element: MyString
-  attributes: MyText
+  element_attributes: MyText
   content: MyText
   order: 1
 
 two:
   page: two
   element: MyString
-  attributes: MyText
+  element_attributes: MyText
   content: MyText
   order: 1

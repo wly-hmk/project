@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  email: MyString
-  api_token: MyString
+  email: MyString1
+  api_token: MyString1
 
 two:
   name: MyString
-  email: MyString
-  api_token: MyString
+  email: MyString2
+  api_token: MyString2
