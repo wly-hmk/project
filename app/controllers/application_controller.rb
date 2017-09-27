@@ -23,8 +23,9 @@ protected
 
   def restrict_content_type
     allowed_types = ['application/json', 'multipart/form-data']
-    unless allowed_types.include? request.content_type
-      render json: {message: 'Content-Type must be application/json'},
+    unless (allowed_types.include? request.content_type) ||
+           request.content_type.blank?
+      render json: { message: 'Content-Type must be application/json' },
              status: 415
     end
   end
