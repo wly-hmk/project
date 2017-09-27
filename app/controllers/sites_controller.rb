@@ -16,8 +16,7 @@ class SitesController < ApplicationController
       delete_user_sites_cache
       render json: site, status: 201
     rescue
-      message = site.errors.full_messages.first.to_s.presence ||
-                'URL must be unique'
+      message = site.errors.full_messages.first.to_s
       render json: { message: message },
              status: 400
     end
@@ -26,15 +25,13 @@ class SitesController < ApplicationController
   def update
     if site = @user.site.find_by(id: params[:site_id])
       begin
-        params_copy = site_params
-        params_copy.delete :site_id
-        site.update_attributes(params_copy)
+        site.assign_attributes(site_params)
+        site.save!
         clear_site_cache(site)
         delete_user_sites_cache
         render json: site, status: 200
       rescue
-        message = site.errors.full_messages.first.to_s.presence ||
-                  'URL must be unique'
+        message = site.errors.full_messages.first.to_s
         render json: { message: message },
                status: 400
       end
@@ -56,7 +53,7 @@ class SitesController < ApplicationController
 
 private
   def site_params
-    params.permit(:title, :url, :published, :site_id)
+    params.except(:site_id).permit(:title, :url, :published)
   end
 
   def delete_user_sites_cache

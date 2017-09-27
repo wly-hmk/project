@@ -1,6 +1,7 @@
 class Site < ApplicationRecord
   belongs_to :user
   validates :title, :url, presence: true
+  validates :url, uniqueness: true
   validates :published, inclusion: { in: [ true, false ] }
 
   has_many :page, :dependent => :destroy

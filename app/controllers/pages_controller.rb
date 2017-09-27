@@ -24,8 +24,7 @@ class PagesController < ApplicationController
         clear_site_cache(current_site)
         render json: page, status: 201
       rescue
-        message = page.errors.full_messages.first.to_s.presence ||
-                  'Slug and site must be unique'
+        message = page.errors.full_messages.first.to_s
         render json: { message: message },
                status: 400
       end
@@ -38,7 +37,8 @@ class PagesController < ApplicationController
     if page = @user.page.find_by(id: params[:page_id],
                                  site_id: params[:site_id])
       begin
-        page.update_attributes(page_params)
+        page.assign_attributes(page_params)
+        page.save!
         clear_site_cache(current_site)
         delete_site_pages_cache
         render json: page, status: 200
