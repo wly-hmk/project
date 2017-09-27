@@ -8,10 +8,12 @@
   </ul>
 </div>
 
-<div class="WebPage">
-  <% @elements.each do |element| %>
-    <<%= element.element %><% element.attributes_hash.each do |key, value| %> <%= key %>='<%= value %>'<% end %>>
-    <%= element.content %>
-    </<%= element.element %>>
-  <% end %>
-</div>
+<% unless @elements.empty? %>
+  <div class="WebPage">
+    <% @elements.each do |element| %>
+      <<%= element.element %><% element.attributes_hash.each do |key, value| %> <%= key %>='<%= value %>'<% end %>>
+      <%= element.content %>
+      </<%= element.element %>>
+    <% end %>
+  </div>
+<% end %>
