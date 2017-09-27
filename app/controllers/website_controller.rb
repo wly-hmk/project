@@ -5,7 +5,7 @@ class WebsiteController < ApplicationController
     if @site.published
       render :show
     else
-      render plain: 'Not Found', status: 404
+      render json: { message: 'Not Found' }, status: 404
     end
   end
 
