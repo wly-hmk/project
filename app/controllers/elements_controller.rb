@@ -56,6 +56,6 @@ private
 
   def current_page
     # Making sure current belongs to user
-    @user.page.find(params[:page_id])
+    @user.page.find_by(id: params[:page_id])
   end
 end
