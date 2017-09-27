@@ -2,14 +2,14 @@
 
 one:
   page: one
-  element: MyString
-  element_attributes: MyText
-  content: MyText
+  element: p
+  element_attributes: '{}'
+  content: MyText1
   order: 1
 
 two:
   page: two
-  element: MyString
-  element_attributes: MyText
-  content: MyText
+  element: p
+  element_attributes: '{class="test"}'
+  content: MyText2
   order: 1
