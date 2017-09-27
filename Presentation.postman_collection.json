@@ -49,7 +49,7 @@
 		{
 			"name": "Create a page for a site",
 			"request": {
-				"url": "http://0.0.0.0:3000/sites/1",
+				"url": "http://0.0.0.0:3000/sites/1/pages",
 				"method": "POST",
 				"header": [
 					{
@@ -88,7 +88,7 @@
 		{
 			"name": "Create an element for a page",
 			"request": {
-				"url": "http://0.0.0.0:3000/sites/1/pages/1",
+				"url": "http://0.0.0.0:3000/sites/1/pages/1/elements",
 				"method": "POST",
 				"header": [
 					{
@@ -178,7 +178,7 @@
 		{
 			"name": "A website with multiple pages and links",
 			"request": {
-				"url": "http://0.0.0.0:3000/website/http%3A%2F%2Fwww.hanmkim.com%2Ffirst-page",
+				"url": "http://0.0.0.0:3000/website/http%3A%2F%2Fwww.example.net%2Fhome",
 				"method": "GET",
 				"header": [],
 				"body": {},

@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Miniweebly",
+		"name": "Requests",
 		"_postman_id": "1acf0d2c-5732-53d7-3063-d77413d49d25",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -66,7 +66,7 @@
 		{
 			"name": "Get pages for a site",
 			"request": {
-				"url": "http://0.0.0.0:3000/sites/1",
+				"url": "http://0.0.0.0:3000/sites/1/pages",
 				"method": "GET",
 				"header": [
 					{
@@ -105,7 +105,7 @@
 		{
 			"name": "Create a page for a site",
 			"request": {
-				"url": "http://0.0.0.0:3000/sites/1",
+				"url": "http://0.0.0.0:3000/sites/1/pages",
 				"method": "POST",
 				"header": [
 					{
@@ -125,7 +125,7 @@
 						},
 						{
 							"key": "slug",
-							"value": "my-second",
+							"value": "first-page11",
 							"description": "",
 							"type": "text"
 						},
@@ -161,7 +161,7 @@
 		{
 			"name": "Create an element for a page",
 			"request": {
-				"url": "http://0.0.0.0:3000/pages/1",
+				"url": "http://0.0.0.0:3000/sites/1/pages/1/elements",
 				"method": "POST",
 				"header": [
 					{
@@ -206,7 +206,7 @@
 		{
 			"name": "Update a Site",
 			"request": {
-				"url": "http://0.0.0.0:3000/sites/2",
+				"url": "http://0.0.0.0:3000/sites/1",
 				"method": "PATCH",
 				"header": [
 					{
@@ -220,13 +220,13 @@
 					"formdata": [
 						{
 							"key": "title",
-							"value": "Edited Title",
+							"value": "Han's site",
 							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "published",
-							"value": "true",
+							"value": "false",
 							"description": "",
 							"type": "text"
 						}
@@ -239,7 +239,7 @@
 		{
 			"name": "Update a Page",
 			"request": {
-				"url": "http://0.0.0.0:3000/pages/2",
+				"url": "http://0.0.0.0:3000/sites/12/pages/12",
 				"method": "PATCH",
 				"header": [
 					{
@@ -253,13 +253,13 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "Edited Name",
+							"value": "My Third Page!1",
 							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "slug",
-							"value": "edited-slug",
+							"value": "third-page1",
 							"description": "",
 							"type": "text"
 						},
@@ -278,7 +278,7 @@
 		{
 			"name": "Update an Element",
 			"request": {
-				"url": "http://0.0.0.0:3000/elements/3",
+				"url": "http://0.0.0.0:3000/sites/1/pages/1/elements/3",
 				"method": "PATCH",
 				"header": [
 					{
@@ -292,19 +292,19 @@
 					"formdata": [
 						{
 							"key": "element_attributes",
-							"value": "{\"class\": \"some_content\"}",
+							"value": "{\"class\": \"content\",\"style\":\"color:green\"}",
 							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "content",
-							"value": "I did something",
+							"value": "Some green text here",
 							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "order",
-							"value": "3",
+							"value": "2.1",
 							"description": "",
 							"type": "text"
 						},
@@ -372,6 +372,207 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/2",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Edited Title",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "published",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Page",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/1/pages/11",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an Element",
+			"request": {
+				"url": "http://0.0.0.0:3000/elements/5",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "JSON Create a Site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"test 2\",\n\t\"url\": \"http://www.facebook.com\",\n\t\"published\": false\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Non-JSON Create a Site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"test\",\n\t\"url\": \"http://www.hk.com\",\n\t\"published\": false\n}"
+				},
+				"description": "\t\t"
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Create an element for a page",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/1/pages/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "element",
+							"value": "p",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "element_attributes",
+							"value": "{\"style\":\"color:pink\"}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "More Text",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "order",
+							"value": "1.54",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "\t"
+			},
+			"response": []
+		},
+		{
+			"name": "Get details for a site",
+			"request": {
+				"url": "http://0.0.0.0:3000/sites/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=lynE9o8GZWR_oJ-LZpoGNw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "url",
+							"value": "http://www.hanmkim.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Han's website",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "published",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
 				"description": ""
 			},
 			"response": []
